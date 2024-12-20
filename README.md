@@ -11,7 +11,21 @@ Reverse engineering involves deconstructing a product to understand its componen
    Once a model is created, it can be analyzed for functionality and performance characteristics. Engineers may employ simulations or physical testing to evaluate how well the reconstructed model performs compared to the original product. This step often reveals insights that can lead to improvements in design or efficiency [(Samtaş, 2013)](https://www.semanticscholar.org/paper/A-Study-of-Reverse-Engineering-Program-Based-on-Samta%C5%9F/32c265481e49cbfcfe19ed2f1790438523ee2128)
 
 # How i Reverse The Application
+In carrying out the reverse engineering process, the initial stage is needed where to decompile the application which is suspected to be somewhat suspicious, in this case I use the [decompile.com](https://decompiler.com) tools to decompile the application, after looking deeper in the [`/ReverseEnginerring/blob/master/sources/com/example/myapplicatior/ReceiveSms.java`](https://github.com/ZahidWazifa/ReverseEnginerring/blob/master/sources/com/example/myapplicatior/ReceiveSms) section. java) I saw that the application maker created a telegram API which will be used to receive a response from the victim's cellphone that has installed the application, in this case the response received is a log of the victim's sms and mms, so that when the perpetrator wants to enter an application that requires authentication such as OTP, the sms log will be sent automatically to the perpetrator using the telegram API media that the perpetrator has entered.
+with the illustration:
+![image1](https://github.com/user-attachments/assets/86444174-f9d9-4373-832e-533f11ad5beb)
+
+# What i Did
+After finding these suspicious things, I tried to make requests to the server continuously, or this term is also known as Denial Of Services, which is a condition where the server is no longer able to receive requests from users, which results in the server shutting down. using the script at the path [`ReverseEnginerring/blob/master/scripts_testing/APIRequest.js`](https://github.com/ZahidWazifa/ReverseEnginerring/blob/master/scripts_testing/APIRequest.js) I got the following response from the server:
+* api still accept request
+  
+![API run ](https://github.com/user-attachments/assets/2fb50d09-8b8f-480a-bbe5-17430bfbaa58)
+
+* api block the Request(overrequest)
+  
+  ![API Down](https://github.com/user-attachments/assets/fbefb107-7423-4afe-8b65-e48086d5573b)
 
 
-   
+
+
    
